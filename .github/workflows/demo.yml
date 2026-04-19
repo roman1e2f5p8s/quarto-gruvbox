@@ -1,0 +1,39 @@
+name: Render Demo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'template.qmd'
+      - '_extensions/**'
+      - '.github/workflows/demo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render template
+        run: quarto render template.qmd
+
+      - name: Stage site
+        run: |
+          mkdir -p _site
+          mv template.html _site/index.html
+          mv template_files _site/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          publish_branch: gh-pages

@@ -1,0 +1,13 @@
+{
+  "name": "quarto-gruvbox-screenshots",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Internal dev helper for generating README screenshots of the Gruvbox theme.",
+  "scripts": {
+    "screenshot": "quarto render template.qmd && node screenshot.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.48.0"
+  }
+}

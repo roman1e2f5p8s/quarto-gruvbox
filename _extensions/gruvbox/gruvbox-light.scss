@@ -1,0 +1,453 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Gruvbox Light — Quarto HTML theme
+// Palette based on the original Gruvbox color scheme by Pavel Pertsev:
+// https://github.com/morhetz/gruvbox
+// ─────────────────────────────────────────────────────────────────────────────
+
+/*-- scss:defaults --*/
+
+// ─── Gruvbox Light Palette ───────────────────────────────────────────────────
+
+// Backgrounds
+$body-bg:  #fbf1c7;
+$bg-hard:  #f9f5d7;
+$bg-soft:  #f2e5bc;
+$bg1:      #ebdbb2;
+$bg2:      #d5c4a1;
+$bg3:      #bdae93;
+$bg4:      #a89984;
+
+// Foregrounds
+$body-color: #3c3836;
+$fg1:        #3c3836;
+$fg2:        #504945;
+$fg3:        #665c54;
+$fg4:        #7c6f64;
+$gray:       #928374;
+
+// Colors
+$red:    #cc241d;
+$green:  #98971a;
+$yellow: #d79921;
+$blue:   #458588;
+$purple: #b16286;
+$aqua:   #689d6a;
+$orange: #d65d0e;
+
+// Faded variants
+$red-faded:    #9d0006;
+$green-faded:  #79740e;
+$yellow-faded: #b57614;
+$blue-faded:   #076678;
+$purple-faded: #8f3f71;
+$aqua-faded:   #427b58;
+$orange-faded: #af3a03;
+
+// ─── Bootstrap / Quarto Variable Overrides ───────────────────────────────────
+
+// Bootstrap semantic colors — mapped onto Gruvbox so .btn-primary,
+// .alert-success, .text-warning, etc. pick up palette tones.
+$primary:   $blue-faded;
+$secondary: $fg4;
+$success:   $green-faded;
+$info:      $aqua-faded;
+$warning:   $yellow-faded;
+$danger:    $red-faded;
+$light:     $bg-hard;
+$dark:      $bg1;
+
+// Typography
+$font-family-sans-serif: 'Roboto Mono', monospace;
+$font-family-monospace:  'Roboto Mono', monospace;
+
+// Links
+$link-color:       $blue;
+$link-hover-color: $body-color;
+
+// Borders
+$border-color: $bg2;
+$border-radius: 6px;
+
+// Tables
+$table-color:           $body-color;
+$table-bg:              $body-bg;
+$table-border-color:    $bg2;
+$table-striped-bg:      $bg-soft;
+$table-hover-bg:        $bg1;
+
+// Navbar
+$navbar-bg:             $bg-hard;
+$navbar-fg:             $body-color;
+$navbar-hl:             $yellow-faded;
+
+// Footer
+$footer-bg:             $bg-hard;
+$footer-fg:             $fg4;
+
+// Sidebar
+$sidebar-bg:            $bg-soft;
+$sidebar-fg:            $body-color;
+$sidebar-hl:            $yellow-faded;
+
+// Code blocks
+$code-block-bg:         $bg-soft;
+$code-color:            $yellow-faded;
+$code-block-border-left-color: $blue;
+
+// Input / form fields
+$input-bg:              $bg1;
+$input-color:           $body-color;
+$input-border-color:    $bg3;
+$input-focus-border-color: $blue;
+
+// Headings
+$headings-color: $fg2;
+
+/*-- scss:rules --*/
+
+// ─── Google Fonts ─────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
+
+// ─── CSS Variables (for use in inline HTML/iframes) ──────────────────────────
+:root {
+  --bg:            #{$body-bg};
+  --bg-hard:       #{$bg-hard};
+  --bg-soft:       #{$bg-soft};
+  --bg1:           #{$bg1};
+  --bg2:           #{$bg2};
+  --bg3:           #{$bg3};
+  --bg4:           #{$bg4};
+  --fg:            #{$body-color};
+  --fg2:           #{$fg2};
+  --fg3:           #{$fg3};
+  --fg4:           #{$fg4};
+  --gray:          #{$gray};
+  --red:           #{$red};
+  --green:         #{$green};
+  --yellow:        #{$yellow};
+  --blue:          #{$blue};
+  --purple:        #{$purple};
+  --aqua:          #{$aqua};
+  --orange:        #{$orange};
+  --red-faded:    #{$red-faded};
+  --green-faded:  #{$green-faded};
+  --yellow-faded: #{$yellow-faded};
+  --blue-faded:   #{$blue-faded};
+  --purple-faded: #{$purple-faded};
+  --aqua-faded:   #{$aqua-faded};
+  --orange-faded: #{$orange-faded};
+
+  // Unified strong aliases — resolve to bright on dark, faded on light
+  --red-strong:    #{$red-faded};
+  --green-strong:  #{$green-faded};
+  --yellow-strong: #{$yellow-faded};
+  --blue-strong:   #{$blue-faded};
+  --purple-strong: #{$purple-faded};
+  --aqua-strong:   #{$aqua-faded};
+  --orange-strong: #{$orange-faded};
+
+  --accent:        #{$yellow-faded};
+}
+
+// ─── Base ─────────────────────────────────────────────────────────────────────
+body {
+  background-color: $body-bg;
+  color: $body-color;
+}
+
+// Hide the empty right margin column left behind when toc-location != right
+.column-margin, #quarto-margin-sidebar {
+  background-color: $body-bg !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+// ─── Headings ─────────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  color: $fg2;
+}
+
+h1 { border-bottom: 1px solid $bg2; padding-bottom: 0.3em; }
+
+// ─── Links ────────────────────────────────────────────────────────────────────
+a         { color: $blue; }
+a:hover   { color: $body-color; text-decoration: none; }
+a:visited { color: $blue-faded; }
+
+// ─── Inline Code ──────────────────────────────────────────────────────────────
+code {
+  color: $yellow-faded !important;
+  background-color: $bg-soft !important;
+  border-radius: 3px;
+  padding: 0.1em 0.3em;
+}
+
+// ─── Code Blocks ──────────────────────────────────────────────────────────────
+pre {
+  background-color: $bg-soft !important;
+  border: 1px solid $bg2;
+  border-radius: $border-radius;
+}
+
+pre code {
+  color: $fg2 !important;
+  background-color: transparent !important;
+  padding: 0;
+}
+
+// code block copy button
+div.sourceCode {
+  background-color: $bg-soft;
+}
+
+// ─── Blockquote ───────────────────────────────────────────────────────────────
+blockquote {
+  border-left: 3px solid $yellow-faded;
+  background-color: $bg-soft;
+  color: $fg3;
+  padding: 0.5em 1em;
+  border-radius: 0 $border-radius $border-radius 0;
+}
+
+// ─── Tables ───────────────────────────────────────────────────────────────────
+table {
+  color: $body-color;
+  border-color: $bg2;
+}
+
+thead tr {
+  background-color: $bg1;
+  color: $fg2;
+  border-bottom: 2px solid $yellow-faded;
+}
+
+tbody tr:nth-child(even) { background-color: $bg-soft; }
+tbody tr:nth-child(odd)  { background-color: $body-bg; }
+tbody tr:hover           { background-color: $bg1; }
+
+td, th {
+  border-color: $bg2 !important;
+}
+
+// ─── Horizontal Rule ──────────────────────────────────────────────────────────
+hr {
+  border-color: $bg2;
+  opacity: 1;
+}
+
+// ─── Title Block ──────────────────────────────────────────────────────────────
+.quarto-title {
+  color: $fg2;
+}
+
+.quarto-title-meta {
+  color: $fg4;
+}
+
+.quarto-title-meta-heading {
+  color: $gray;
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
+}
+
+// ─── Figure Captions ──────────────────────────────────────────────────────────
+.quarto-float-caption,
+.figure-caption,
+figcaption {
+  color: $fg4 !important;
+  text-align: center;
+  font-size: 0.875em;
+}
+
+.quarto-subfloat-caption {
+  color: $fg4 !important;
+  text-align: center !important;
+  font-size: 0.85em;
+}
+
+// ─── Cross-references ────────────────────────────────────────────────────────
+a.quarto-xref {
+  color: $blue;
+}
+
+// ─── Tippy Tooltips (hover previews) ─────────────────────────────────────────
+.tippy-box {
+  background-color: $bg-soft !important;
+  color: $body-color !important;
+  border: 1px solid $yellow-faded !important;
+  border-radius: $border-radius !important;
+}
+.tippy-arrow   { color: $bg-soft !important; }
+.tippy-content { color: $body-color !important; }
+
+// ─── Callouts ────────────────────────────────────────────────────────────────
+div.callout {
+  background-color: $bg-soft !important;
+  border-radius: $border-radius;
+}
+
+div.callout .callout-title-container { color: $body-color !important; }
+div.callout .callout-body-container  { color: $body-color !important; }
+
+// note — bi-info-circle — blue
+div.callout-note {
+  border-left-color: $blue !important;
+  .callout-header { background-color: rgba($blue, 0.2) !important; }
+}
+div.callout-note.callout-titled .callout-icon::before,
+div.callout-note:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill: %23076678' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z'/></svg>") !important;
+}
+
+// warning — bi-exclamation-triangle — yellow
+div.callout-warning {
+  border-left-color: $yellow !important;
+  .callout-header { background-color: rgba($yellow, 0.2) !important; }
+}
+div.callout-warning.callout-titled .callout-icon::before,
+div.callout-warning:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill: %23b57614' viewBox='0 0 16 16'><path d='M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z'/><path d='M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z'/></svg>") !important;
+}
+
+// important — bi-exclamation-circle — purple
+div.callout-important {
+  border-left-color: $purple !important;
+  .callout-header { background-color: rgba($purple, 0.2) !important; }
+}
+div.callout-important.callout-titled .callout-icon::before,
+div.callout-important:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill: %238f3f71' viewBox='0 0 16 16'><path d='M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z'/><path d='M7.002 11a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 4.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z'/></svg>") !important;
+}
+
+// tip — bi-lightbulb — green
+div.callout-tip {
+  border-left-color: $green !important;
+  .callout-header { background-color: rgba($green, 0.2) !important; }
+}
+div.callout-tip.callout-titled .callout-icon::before,
+div.callout-tip:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill: %2379740e' viewBox='0 0 16 16'><path d='M2 6a6 6 0 1 1 10.174 4.31c-.203.196-.359.4-.453.619l-.762 1.769A.5.5 0 0 1 10.5 13a.5.5 0 0 1 0 1 .5.5 0 0 1 0 1l-.224.447a1 1 0 0 1-.894.553H6.618a1 1 0 0 1-.894-.553L5.5 15a.5.5 0 0 1 0-1 .5.5 0 0 1 0-1 .5.5 0 0 1-.46-.302l-.761-1.77a1.964 1.964 0 0 0-.453-.618A5.984 5.984 0 0 1 2 6zm6-5a5 5 0 0 0-3.479 8.592c.263.254.514.564.676.941L5.83 12h4.342l.632-1.467c.162-.377.413-.687.676-.941A5 5 0 0 0 8 1z'/></svg>") !important;
+}
+
+// caution — bi-fire — red
+div.callout-caution {
+  border-left-color: $red !important;
+  .callout-header { background-color: rgba($red, 0.2) !important; }
+}
+div.callout-caution.callout-titled .callout-icon::before,
+div.callout-caution:not(.callout-titled) .callout-icon::before {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' style='fill: %239d0006' viewBox='0 0 16 16'><path d='M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16Zm0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15z'/></svg>") !important;
+}
+
+// ─── Panel Tabset ─────────────────────────────────────────────────────────────
+.panel-tabset {
+  .nav-tabs {
+    border-bottom-color: $bg2;
+  }
+
+  .nav-link {
+    color: $fg3;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .nav-link:hover {
+    color: $body-color;
+    border-color: $bg2;
+  }
+
+  .nav-link.active {
+    color: $yellow-faded;
+    background-color: $bg-soft;
+    border-color: $bg2 $bg2 $bg-soft;
+  }
+
+  .tab-content {
+    background-color: $bg-soft;
+    border: 1px solid $bg2;
+    border-top: none;
+    padding: 1em;
+    border-radius: 0 0 $border-radius $border-radius;
+  }
+}
+
+// ─── Navbar ───────────────────────────────────────────────────────────────────
+.navbar {
+  background-color: $bg-hard !important;
+  border-bottom: 1px solid $bg2;
+}
+
+.navbar-brand, .navbar-nav .nav-link {
+  color: $body-color !important;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: $yellow-faded !important;
+}
+
+// ─── Sidebar ──────────────────────────────────────────────────────────────────
+.sidebar {
+  background-color: $bg-soft;
+  border-right: 1px solid $bg2;
+}
+
+.sidebar .nav-link         { color: $fg3; }
+.sidebar .nav-link:hover   { color: $body-color; }
+.sidebar .nav-link.active  { color: $yellow-faded; }
+
+// ─── Table of Contents ────────────────────────────────────────────────────────
+#TOC, .toc-active {
+  background-color: transparent;
+}
+
+#TOC a         { color: $fg3; }
+#TOC a:hover   { color: $body-color; }
+#TOC a.active,
+#TOC li.active > a { color: $yellow-faded; font-weight: bold; }
+
+// ─── Search ───────────────────────────────────────────────────────────────────
+.quarto-search input {
+  background-color: $bg1;
+  color: $body-color;
+  border-color: $bg3;
+}
+
+.search-result-container {
+  background-color: $bg-soft;
+  border: 1px solid $bg2;
+}
+
+.search-result-more,
+.search-result-doc,
+.search-result-section {
+  color: $body-color;
+}
+
+.search-result-doc:hover,
+.search-result-section:hover {
+  background-color: $bg1;
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.nav-footer {
+  background-color: $bg-hard;
+  border-top: 1px solid $bg2;
+  color: $fg4;
+}
+
+// ─── Scrollbar ────────────────────────────────────────────────────────────────
+::-webkit-scrollbar       { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: $bg-hard; }
+::-webkit-scrollbar-thumb {
+  background: $bg3;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover { background: $bg4; }
+
+// ─── Selection ────────────────────────────────────────────────────────────────
+::selection {
+  background-color: rgba($blue, 0.4);
+  color: $body-color;
+}

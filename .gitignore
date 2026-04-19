@@ -1,0 +1,22 @@
+# Quarto
+/.quarto/
+/_freeze/
+/_site/
+/_book/
+
+# Rendered outputs
+*.html
+*_files/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Node (screenshot helper)
+node_modules/

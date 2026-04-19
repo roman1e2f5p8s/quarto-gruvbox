@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "name": "Gruvbox Dark",
+    "revision": 1
+  },
+  "editor-colors": {
+    "BackgroundColor": "#32302f",
+    "TextColor": "#ebdbb2"
+  },
+  "text-styles": {
+    "Normal":         { "text-color": "#ebdbb2" },
+    "Keyword":        { "text-color": "#fb4934", "bold": true },
+    "Function":       { "text-color": "#b8bb26" },
+    "Variable":       { "text-color": "#83a598" },
+    "ControlFlow":    { "text-color": "#fb4934", "bold": true },
+    "Operator":       { "text-color": "#fe8019" },
+    "BuiltIn":        { "text-color": "#fe8019" },
+    "Extension":      { "text-color": "#83a598" },
+    "Preprocessor":   { "text-color": "#fe8019" },
+    "Attribute":      { "text-color": "#83a598" },
+    "Char":           { "text-color": "#b8bb26" },
+    "SpecialChar":    { "text-color": "#fe8019" },
+    "String":         { "text-color": "#b8bb26" },
+    "VerbatimString": { "text-color": "#b8bb26" },
+    "SpecialString":  { "text-color": "#b8bb26" },
+    "Import":         { "text-color": "#fe8019" },
+    "DataType":       { "text-color": "#fabd2f" },
+    "DecVal":         { "text-color": "#d3869b" },
+    "BaseN":          { "text-color": "#d3869b" },
+    "Float":          { "text-color": "#d3869b" },
+    "Constant":       { "text-color": "#d3869b" },
+    "Comment":        { "text-color": "#928374", "italic": true },
+    "Documentation":  { "text-color": "#928374", "italic": true },
+    "Annotation":     { "text-color": "#928374", "italic": true },
+    "CommentVar":     { "text-color": "#928374", "italic": true },
+    "Information":    { "text-color": "#83a598" },
+    "Warning":        { "text-color": "#fabd2f" },
+    "Alert":          { "text-color": "#fb4934", "bold": true },
+    "Error":          { "text-color": "#fb4934", "bold": true },
+    "Other":          { "text-color": "#8ec07c" }
+  }
+}

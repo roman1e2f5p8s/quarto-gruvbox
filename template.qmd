@@ -1,0 +1,185 @@
+---
+title: "Gruvbox Theme for Quarto"
+subtitle: "A retro-groove HTML theme, dark and light"
+author: "Roman Overko"
+date: last-modified
+format:
+  gruvbox-html: default
+---
+
+## Introduction
+
+[Gruvbox](https://github.com/morhetz/gruvbox) theme for Quarto HTML. Two
+variants, dark and light, both covering the same set of components: navigation,
+callouts, tables, code blocks, the table of contents, and tabsets.
+
+The theme follows the reader's system preference by default. Enable the toggle
+in `_quarto.yml` to let readers switch manually from the navbar.
+
+## Typography
+
+Body text is set in [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono).
+The usual markdown works: **bold**, *italic*, `inline code`, ~~strikethrough~~,
+and [links](https://quarto.org).
+
+### Headings
+
+Headings use a lighter foreground tone. `<h1>` gets a thin bottom border
+to break up the page.
+
+## Lists
+
+Ordered:
+
+1. Backgrounds: `bg`, `bg-hard`, `bg-soft`, `bg1`-`bg4`
+2. Foregrounds: `fg1`-`fg4`, `gray`
+3. Accents: `red`, `green`, `yellow`, `blue`, `purple`, `aqua`, `orange`
+
+Nested unordered:
+
+- Dark theme uses the `bright` accent family
+  - Bright variants stay readable on the dark background
+- Light theme uses the `faded` accent family
+  - Faded variants have enough weight on the cream background
+
+## Blockquote
+
+> Retro groove colour scheme for Vim.
+>
+> — Pavel Pertsev
+
+## Code
+
+Inline code uses strong yellow on a soft background. Block code picks up
+the Gruvbox syntax theme: red keywords, green strings, gray italic
+comments, purple numbers, yellow types, orange operators, blue variables.
+Colors swap to the correct variant (bright on dark, faded on light) with
+the theme.
+
+A Python block:
+
+```python
+def gruvbox_palette():
+    return {
+        "red":    "#cc241d",
+        "green":  "#98971a",
+        "yellow": "#d79921",
+        "blue":   "#458588",
+        "purple": "#b16286",
+        "aqua":   "#689d6a",
+        "orange": "#d65d0e",
+    }
+```
+
+And an R block:
+
+```r
+colors <- c("#cc241d", "#98971a", "#d79921",
+            "#458588", "#b16286", "#689d6a", "#d65d0e")
+barplot(rep(1, length(colors)), col = colors, border = NA, axes = FALSE)
+```
+
+## Tables
+
+| Variant | Background | Foreground | Accent family |
+|--------:|:-----------|:-----------|:--------------|
+| Dark    | `#282828`  | `#ebdbb2`  | bright        |
+| Light   | `#fbf1c7`  | `#3c3836`  | faded         |
+
+## Figures
+
+```{=html}
+<figure style="text-align: center;">
+  <svg width="420" height="60" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0"   y="0" width="60" height="60" fill="#cc241d"/>
+    <rect x="60"  y="0" width="60" height="60" fill="#98971a"/>
+    <rect x="120" y="0" width="60" height="60" fill="#d79921"/>
+    <rect x="180" y="0" width="60" height="60" fill="#458588"/>
+    <rect x="240" y="0" width="60" height="60" fill="#b16286"/>
+    <rect x="300" y="0" width="60" height="60" fill="#689d6a"/>
+    <rect x="360" y="0" width="60" height="60" fill="#d65d0e"/>
+  </svg>
+  <figcaption>Gruvbox accents: red, green, yellow, blue, purple, aqua, orange.</figcaption>
+</figure>
+```
+
+## Math
+
+Inline: $c \geq 4.5$ is the body-text contrast target.
+
+Display:
+
+$$
+E = mc^2 \qquad\Longleftrightarrow\qquad
+\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}
+$$
+
+## Callouts
+
+Each of the five callout types uses its canonical Gruvbox color for the
+border, header tint, and icon.
+
+::: {.callout-note}
+Blue. Side notes, supplementary context.
+:::
+
+::: {.callout-tip}
+Green. Suggestions and shortcuts.
+:::
+
+::: {.callout-warning}
+Yellow. Worth checking before you continue.
+:::
+
+::: {.callout-important}
+Purple. Don't skip.
+:::
+
+::: {.callout-caution}
+Red. Destructive or irreversible.
+:::
+
+## Tabsets
+
+::: {.panel-tabset}
+
+### Dark palette
+
+| Role   | Hex                |
+|--------|--------------------|
+| bg     | `#282828`          |
+| fg     | `#ebdbb2`          |
+| yellow | `#fabd2f` (bright) |
+| blue   | `#83a598` (bright) |
+
+### Light palette
+
+| Role   | Hex               |
+|--------|-------------------|
+| bg     | `#fbf1c7`         |
+| fg     | `#3c3836`         |
+| yellow | `#b57614` (faded) |
+| blue   | `#076678` (faded) |
+
+:::
+
+## CSS variables
+
+Every palette entry is also exposed as a CSS custom property on `:root`,
+so you can use it in inline HTML:
+
+```css
+.my-widget {
+  background: var(--bg-soft);
+  color:      var(--fg);
+  border:     1px solid var(--yellow-strong);
+}
+```
+
+`--*-strong` points at the bright family in the dark theme and the faded
+family in the light theme. One rule, both modes.
+
+## References
+
+- Gruvbox: <https://github.com/morhetz/gruvbox>
+- Quarto HTML options: <https://quarto.org/docs/output-formats/html-basics.html>
