@@ -7,6 +7,8 @@ blocks, the table of contents, and tabsets.
 ![Dark](images/dark.png)
 ![Light](images/light.png)
 
+**Live demo:** <https://roman1e2f5p8s.github.io/quarto-gruvbox/>
+
 ## Install
 
 Add the extension to an existing project:
