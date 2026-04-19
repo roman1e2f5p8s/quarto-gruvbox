@@ -7,6 +7,8 @@ on:
       - 'template.qmd'
       - '_extensions/**'
       - '.github/workflows/demo.yml'
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -32,6 +34,7 @@ jobs:
           mv template_files _site/
 
       - name: Deploy to GitHub Pages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
